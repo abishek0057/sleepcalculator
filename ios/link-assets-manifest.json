@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Oswald-Bold.ttf",
+      "sha1": "a6d0bf488eefe0dea9d0e433f0bc706514a7f8f6"
+    },
+    {
+      "path": "src/assets/fonts/Oswald-Regular.ttf",
+      "sha1": "d16c1dcb19e0e7572d2dea9d7445c0506c20b25d"
+    }
+  ]
+}
