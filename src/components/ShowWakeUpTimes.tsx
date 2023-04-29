@@ -6,9 +6,10 @@ import HeaderText from './HeaderText';
 import TimeBox from './TimeBox';
 import styles from '../Styles/StyleForShowTimePage';
 import {calculateWakeUpTime} from '../utils/whentowakeup';
+import {wakeUpTimeType} from '../types/types';
 
 const ShowWakeUpTimes = () => {
-  const [wakeUpTimes, setWakeUpTimes] = useState<Date[]>([]);
+  const [wakeUpTimes, setWakeUpTimes] = useState<wakeUpTimeType[]>([]);
 
   useEffect(() => {
     setWakeUpTimes(calculateWakeUpTime);
@@ -33,9 +34,10 @@ const ShowWakeUpTimes = () => {
           {topTwo.map(time => {
             return (
               <TimeBox
-                key={time.toString()}
-                hrs={time.getHours()}
-                min={time.getMinutes()}
+                key={time.id}
+                hrs={time.hrs}
+                min={time.min}
+                period={time.period}
                 suggested={true}
                 topTwo={true}
               />
@@ -47,9 +49,10 @@ const ShowWakeUpTimes = () => {
           {remaining.map(time => {
             return (
               <TimeBox
-              key={time.toString()}
-                hrs={time.getHours()}
-                min={time.getMinutes()}
+                key={time.id}
+                hrs={time.hrs}
+                min={time.min}
+                period={time.period}
                 suggested={false}
               />
             );
