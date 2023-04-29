@@ -23,7 +23,6 @@ const TimePicker = () => {
   };
 
   useEffect(() => {
-    console.log(hour, min, amPm);
     (async () => {await AsyncStorage.setItem("pickedTime", JSON.stringify({hour, min, amPm}))})();
   }, [hour, min, amPm]);
 

@@ -1,7 +1,7 @@
 // screen for when to wake of if you want to go to bed now
 
 import React, { useEffect, useState } from 'react';
-import {Text, View} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 import HeaderText from './HeaderText';
 import TimeBox from './TimeBox';
 import styles from '../Styles/StyleForShowTimePage';
@@ -20,7 +20,8 @@ const ShowWakeUpTimes = () => {
   const remaining = times.slice(2);
   
   return (
-    <View>
+    <ScrollView>
+      <View>
       <HeaderText headerText="Sleep Calculator" />
       <Text style={styles.subHeading}>Wake-up time</Text>
       <Text style={styles.textStyle}>
@@ -66,6 +67,7 @@ const ShowWakeUpTimes = () => {
         cycles.
       </Text>
     </View>
+    </ScrollView>
   );
 };
 
