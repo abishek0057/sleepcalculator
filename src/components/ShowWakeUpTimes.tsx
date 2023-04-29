@@ -1,5 +1,4 @@
 // screen for when to wake of if you want to go to bed now
-
 import React, { useEffect, useState } from 'react';
 import {Text, View} from 'react-native';
 import HeaderText from './HeaderText';
@@ -7,9 +6,7 @@ import TimeBox from './TimeBox';
 import styles from '../Styles/StyleForShowTimePage';
 import {whenToWakeUp} from "../utils/whentowakeup";
 
-
 const ShowWakeUpTimes = () => {
-
   const [times, setTime] = useState([{ id: 0, hrs: '', min: '', ampm: '' }]);
 
   useEffect( () => {
