@@ -12,7 +12,6 @@ import HeaderText from './HeaderText';
 import AppButton from './AppButton';
 import TimePicker from './TimePicker';
 
-
 function OpenInspiredBy() {
   Linking.openURL('https://sleepcalculator.com/');
 }
@@ -38,7 +37,7 @@ const HomeScreen = (props: {navigation: object}) => {
             name="ShowWakeUpTimes"
             navigation={props.navigation}
           />
-          <Pressable onPress={OpenInspiredBy}>
+          <Pressable onPress={OpenInspiredBy} style={{marginTop: '45%'}}>
             <Text style={[styles.InspiredBy]}>
               Inspired by{' '}
               <Text style={{fontStyle: 'italic'}}>SleepCalculator.com</Text>
@@ -66,6 +65,5 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     textAlign: 'center',
     fontFamily: 'Oswald-Regular',
-    marginTop: 150,
   },
 });
