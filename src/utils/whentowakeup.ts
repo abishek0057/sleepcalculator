@@ -1,5 +1,4 @@
-import { wakeUpTimeType } from "../types/types";
-
+import {wakeUpTimeType} from '../types/types';
 
 // calculate when to wake of if you want to go to bed now
 function addMinutes(date: Date, minutes: number): Date {
@@ -15,13 +14,8 @@ export function calculateWakeUpTime() {
 
     const hrs = (wakeUpTime.getHours() % 12).toString().padStart(2, '0');
     const min = wakeUpTime.getMinutes().toString().padStart(2, '0');
+    const period = wakeUpTime.getHours() < 12 ? 'AM' : 'PM';
 
-    let period;
-    if (now.getHours() < 12) {
-      period = wakeUpTime.getHours() % 12 ? 'AM' : 'PM';
-    } else {
-      period = wakeUpTime.getHours() % 12 ? 'PM' : 'AM';
-    }
     wakeUpTimes.push({id: i, hrs, min, period});
   }
   return wakeUpTimes;
