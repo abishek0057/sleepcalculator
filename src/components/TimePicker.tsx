@@ -22,7 +22,6 @@ const TimePicker = () => {
   };
 
   useEffect(() => {
-    console.log(hour, min, amPm);
   }, [hour, min, amPm]);
 
   return (
