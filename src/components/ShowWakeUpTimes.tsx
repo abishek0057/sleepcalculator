@@ -7,6 +7,7 @@ import TimeBox from './TimeBox';
 import styles from '../Styles/StyleForShowTimePage';
 import {whenToWakeUp} from "../utils/whentowakeup";
 
+
 const ShowWakeUpTimes = () => {
 
   const [times, setTime] = useState([{ id: 0, hrs: '', min: '', ampm: '' }]);
@@ -61,7 +62,7 @@ const ShowWakeUpTimes = () => {
       </View>
       <Text style={styles.textStyle}>
         If you wake up at one of these times, you will rise in between 90-minute
-        sleep cycles. A good night’s sleep consists of 5-6 complete sleep
+        sleep cycles. A good night's sleep consists of 5-6 complete sleep
         cycles.
       </Text>
     </View>
