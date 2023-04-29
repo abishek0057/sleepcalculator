@@ -7,20 +7,19 @@ import {
   SafeAreaView,
   ScrollView,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import HeaderText from './HeaderText';
 import AppButton from './AppButton';
 import TimePicker from './TimePicker';
 import ShowWakeUpTimes from './ShowWakeUpTimes';
 import ShowBedTimes from './ShowBedTimes';
-import {whenToWakeUp} from "../utils/whentowakeup";
-
+import {whenToWakeUp} from '../utils/whentowakeup';
 
 function OpenInspiredBy() {
   Linking.openURL('https://sleepcalculator.com/');
 }
 
-const HomeScreen = (props: {navigation: object}) => {  
+const HomeScreen = (props: {navigation: object}) => {
   return (
     <SafeAreaView>
       <ScrollView>
