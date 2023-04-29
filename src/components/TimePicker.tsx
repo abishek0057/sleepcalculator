@@ -1,6 +1,7 @@
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {RadioButton} from 'react-native-paper';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const TimePicker = () => {
   const [hour, setHours] = useState('07');
@@ -23,6 +24,7 @@ const TimePicker = () => {
 
   useEffect(() => {
     console.log(hour, min, amPm);
+    (async () => {await AsyncStorage.setItem("pickedTime", JSON.stringify({hour, min, amPm}))})();
   }, [hour, min, amPm]);
 
   return (

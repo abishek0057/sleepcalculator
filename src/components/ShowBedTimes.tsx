@@ -1,20 +1,32 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import React from 'react';
 import HeaderText from './HeaderText';
 import TimeBox from './TimeBox';
 import styles from '../Styles/StyleForShowTimePage';
+import { useEffect, useState } from 'react';
+import {calculateSleepAt} from '../utils/calculatesleepat'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const ShowBedTimes = () => {
-  const times = [
-    {id: 6, hrs: '05', min: '32', ampm: 'pm'},
-    {id: 5, hrs: '04', min: '02', ampm: 'pm'},
-    {id: 4, hrs: '02', min: '32', ampm: 'pm'},
-    {id: 3, hrs: '01', min: '02', ampm: 'pm'},
-    {id: 2, hrs: '11', min: '32', ampm: 'am'},
-    {id: 1, hrs: '10', min: '02', ampm: 'am'},
-  ];
+  const [pickedTime, setPickedTime] = useState({hour: '', min: '', amPm: ''});
+  const [times, setTimes] = useState([{ id: 0, hrs: '', min: '', ampm: '' }]);
 
-  let wakeUpTime = '6:30 AM';
+  useEffect( () => {
+    (async () => {
+      const pickedTime = await AsyncStorage.getItem("pickedTime");
+      if (pickedTime) {
+        let {hour, min, amPm} = JSON.parse(pickedTime);
+        setPickedTime({hour, min, amPm})
+        let tempHrs = Number(hour)      
+        let tempMin = Number(min)
+        let tempAmPm = amPm.toLowerCase()
+        setTimes(calculateSleepAt(tempHrs, tempMin, tempAmPm))      
+      }
+    })();
+  },[]);
+
+  let wakeUpTime = `${pickedTime.hour}:${pickedTime.min} ${pickedTime.amPm.toUpperCase()}`;
 
   const topTwo = times.slice(0, 2);
   const remaining = times.slice(2);
