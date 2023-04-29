@@ -1,13 +1,15 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-const TimeBox = (props: {
+type timeBoxType = {
   topTwo?: boolean;
   suggested?: boolean;
   hrs: string;
   min: string;
   ampm: string;
-}) => {
+}
+
+const TimeBox = ({topTwo, suggested, hrs, min, ampm}: timeBoxType) => {
   return (
     <View
       style={{
@@ -16,9 +18,9 @@ const TimeBox = (props: {
         alignItems: 'center',
         marginHorizontal: 5,
       }}>
-      <Text style={[styles.timeText, props.topTwo ? {fontSize: 22} : null]}>
-        {`${props.hrs}:${props.min} ${props.ampm.toUpperCase()}  `}
-        {props.suggested ? (
+      <Text style={[styles.timeText, topTwo ? {fontSize: 22} : null]}>
+        {`${hrs}:${min} ${ampm.toUpperCase()}  `}
+        {suggested ? (
           <Text style={styles.suggestedTxt}>Suggested</Text>
         ) : null}
       </Text>
