@@ -1,6 +1,6 @@
 //calculate when to sleep when wake up time is given
 
-function calculateSleepAt(wakeUpHrs, wakeUpMin, amPm) {
+export function calculateSleepAt(wakeUpHrs, wakeUpMin, amPm) {
     const averageSleepTime = 15;
     let times = [];
     for (i = 6; i >= 1; i--) {
