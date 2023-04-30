@@ -10,12 +10,12 @@ const TimePicker = () => {
 
   const handleHrs = (hrs: string) => {
     if (Number(hrs) > 12 || Number(hrs) < 1) setHours('12');
-    else setHours(hrs.padStart(2, "0"));
+    else setHours(hrs.padStart(2, '0'));
   };
 
   const handleMins = (mins: string) => {
     if (Number(mins) > 59 || Number(mins) < 1) setMins('00');
-    else setMins(mins.padStart(2, "0"));
+    else setMins(mins.padStart(2, '0'));
   };
 
   const handleRadioButton = (value: any) => {
@@ -23,7 +23,12 @@ const TimePicker = () => {
   };
 
   useEffect(() => {
-    (async () => {await AsyncStorage.setItem("pickedTime", JSON.stringify({hour, min, amPm}))})();
+    (async () => {
+      await AsyncStorage.setItem(
+        'pickedTime',
+        JSON.stringify({hour, min, amPm}),
+      );
+    })();
   }, [hour, min, amPm]);
 
   return (
@@ -34,19 +39,17 @@ const TimePicker = () => {
           maxLength={2}
           value={hour}
           keyboardType="numeric"
-          onEndEditing={(e) => handleHrs(e.nativeEvent.text)}
+          onEndEditing={e => handleHrs(e.nativeEvent.text)}
           onChangeText={hrs => setHours(hrs)}
-          selectTextOnFocus>
-        </TextInput>
+          selectTextOnFocus></TextInput>
         <TextInput
           style={styles.input}
           maxLength={2}
           value={min}
           keyboardType="numeric"
-          onEndEditing={(e) => handleMins(e.nativeEvent.text)}
+          onEndEditing={e => handleMins(e.nativeEvent.text)}
           onChangeText={min => setMins(min)}
-          selectTextOnFocus>
-        </TextInput>
+          selectTextOnFocus></TextInput>
         <View style={styles.amPm}>
           <RadioButton.Group onValueChange={handleRadioButton} value={amPm}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>

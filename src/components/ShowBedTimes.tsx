@@ -1,4 +1,4 @@
-import {Text, View} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 import React from 'react';
 import HeaderText from './HeaderText';
 import TimeBox from './TimeBox';
@@ -32,7 +32,8 @@ const ShowBedTimes = () => {
   const remaining = times.slice(2);
 
   return (
-    <View>
+    <ScrollView>
+      <View>
       <HeaderText headerText="Sleep Calculator" />
       <Text style={styles.subHeading}>Bedtime</Text>
       <Text style={styles.textStyle}>
@@ -49,7 +50,7 @@ const ShowBedTimes = () => {
                 key={e.id}
                 hrs={e.hrs}
                 min={e.min}
-                ampm={e.ampm}
+                period={e.ampm}
                 suggested={true}
                 topTwo={true}
               />
@@ -64,7 +65,7 @@ const ShowBedTimes = () => {
                 key={e.id}
                 hrs={e.hrs}
                 min={e.min}
-                ampm={e.ampm}
+                period={e.ampm}
                 suggested={false}
               />
             );
@@ -77,6 +78,7 @@ const ShowBedTimes = () => {
         cycles.
       </Text>
     </View>
+    </ScrollView>
   );
 };
 
