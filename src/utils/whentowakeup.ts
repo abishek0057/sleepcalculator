@@ -12,7 +12,8 @@ export function calculateWakeUpTime() {
   for (let i = 6; i >= 1; i--) {
     let wakeUpTime = addMinutes(now, i * 90 + 15);
 
-    const hrs = (wakeUpTime.getHours() % 12).toString().padStart(2, '0');
+    let hrs = (wakeUpTime.getHours() % 12).toString().padStart(2, '0');
+    if(hrs === "00") hrs = "12";
     const min = wakeUpTime.getMinutes().toString().padStart(2, '0');
     const period = wakeUpTime.getHours() < 12 ? 'AM' : 'PM';
 

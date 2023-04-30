@@ -50,7 +50,7 @@ const ShowBedTimes = () => {
                 key={e.id}
                 hrs={e.hrs}
                 min={e.min}
-                ampm={e.ampm}
+                period={e.ampm}
                 suggested={true}
                 topTwo={true}
               />
@@ -65,7 +65,7 @@ const ShowBedTimes = () => {
                 key={e.id}
                 hrs={e.hrs}
                 min={e.min}
-                ampm={e.ampm}
+                period={e.ampm}
                 suggested={false}
               />
             );
